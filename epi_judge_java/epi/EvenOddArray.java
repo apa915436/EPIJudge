@@ -10,6 +10,17 @@ public class EvenOddArray {
 
   public static void evenOdd(List<Integer> A) {
     // TODO - you fill in here.
+    int nextEven = 0, nextOdd = A.size() - 1;
+    while(nextEven < nextOdd){
+      if(A.get(nextEven) % 2 == 0){
+        nextEven += 1;
+      }else{
+        int temp = A.get(nextOdd);
+        A.set(nextOdd, A.get(nextEven));
+        A.set(nextEven, temp);
+        nextOdd -= 1;
+      }
+    }
     return;
   }
   @EpiTest(testDataFile = "even_odd_array.tsv")
